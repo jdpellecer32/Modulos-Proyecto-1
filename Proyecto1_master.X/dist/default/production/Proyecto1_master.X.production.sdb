@@ -45,26 +45,46 @@
 [v _lcd_write_string lcd_write_string `(v  1 e 1 0 ]
 "52 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\oscilador.c
 [v _initOsci4MHZ initOsci4MHZ `(v  1 e 1 0 ]
-"75 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
+"79 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _main main `(v  1 e 1 0 ]
-"101
+"108
 [v _separa_digitos_rtc separa_digitos_rtc `(v  1 e 1 0 ]
-"117
+"124
 [v _mostrar_lcd mostrar_lcd `(v  1 e 1 0 ]
-"140
+"147
+[v _primera_llamada primera_llamada `(v  1 e 1 0 ]
+"155
+[v _segunda_llamada segunda_llamada `(v  1 e 1 0 ]
+"163
+[v _tercera_llamada tercera_llamada `(v  1 e 1 0 ]
+"171
+[v _apagar_luces apagar_luces `(v  1 e 1 0 ]
+"181
 [v _configPorts configPorts `(v  1 e 1 0 ]
-"161
+"202
 [v _BCD_2_DEC BCD_2_DEC `(i  1 e 2 0 ]
-"166
+"207
 [v _DEC_2_BCD DEC_2_BCD `(i  1 e 2 0 ]
-"172
+"213
 [v _Set_Time_Date Set_Time_Date `(v  1 e 1 0 ]
-"229
+"230
 [v _Update_Current_Date_Time Update_Current_Date_Time `(v  1 e 1 0 ]
 "166 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S88 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"245
+[u S97 . 1 `S88 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES97  1 e 1 @6 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
@@ -77,7 +97,7 @@
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S188 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S239 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -87,29 +107,29 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S197 . 1 `S188 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES197  1 e 1 @135 ]
+[u S248 . 1 `S239 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES248  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S141 . 1 `uc 1 SCS 1 0 :1:0 
+[s S192 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S147 . 1 `uc 1 . 1 0 :4:0 
+[s S198 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S152 . 1 `S141 1 . 1 0 `S147 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES152  1 e 1 @143 ]
+[u S203 . 1 `S192 1 . 1 0 `S198 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES203  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S209 . 1 `uc 1 SEN 1 0 :1:0 
+[s S260 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -119,8 +139,8 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S218 . 1 `S209 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES218  1 e 1 @145 ]
+[u S269 . 1 `S260 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES269  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
@@ -161,7 +181,7 @@
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4460
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
-"63 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
+"67 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _sec_0 sec_0 `uc  1 e 1 0 ]
 [v _sec_1 sec_1 `uc  1 e 1 0 ]
 [v _min_0 min_0 `uc  1 e 1 0 ]
@@ -174,32 +194,47 @@
 [v _month_1 month_1 `uc  1 e 1 0 ]
 [v _year_0 year_0 `uc  1 e 1 0 ]
 [v _year_1 year_1 `uc  1 e 1 0 ]
-"66
+"70
 [v _sec sec `i  1 e 2 0 ]
-"67
-[v _min min `i  1 e 2 0 ]
-"68
-[v _hour hour `i  1 e 2 0 ]
-"69
-[v _date date `i  1 e 2 0 ]
 "71
-[v _month month `i  1 e 2 0 ]
+[v _min min `i  1 e 2 0 ]
 "72
-[v _year year `i  1 e 2 0 ]
+[v _hour hour `i  1 e 2 0 ]
+"73
+[v _date date `i  1 e 2 0 ]
 "75
+[v _month month `i  1 e 2 0 ]
+"76
+[v _year year `i  1 e 2 0 ]
+"79
 [v _main main `(v  1 e 1 0 ]
 {
-"100
+"106
 } 0
-"101
+"163
+[v _tercera_llamada tercera_llamada `(v  1 e 1 0 ]
+{
+"169
+} 0
+"108
 [v _separa_digitos_rtc separa_digitos_rtc `(v  1 e 1 0 ]
 {
-"115
+"122
 } 0
-"117
+"155
+[v _segunda_llamada segunda_llamada `(v  1 e 1 0 ]
+{
+"161
+} 0
+"147
+[v _primera_llamada primera_llamada `(v  1 e 1 0 ]
+{
+"153
+} 0
+"124
 [v _mostrar_lcd mostrar_lcd `(v  1 e 1 0 ]
 {
-"138
+"145
 } 0
 "131 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\LCD.c
 [v _lcd_write_string lcd_write_string `(v  1 e 1 0 ]
@@ -259,15 +294,24 @@
 {
 "57
 } 0
-"140 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
+"181 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _configPorts configPorts `(v  1 e 1 0 ]
 {
-"156
+"197
 } 0
-"229
+"171
+[v _apagar_luces apagar_luces `(v  1 e 1 0 ]
+{
+[v apagar_luces@t t `uc  1 a 1 wreg ]
+[v apagar_luces@t t `uc  1 a 1 wreg ]
+"174
+[v apagar_luces@t t `uc  1 a 1 2 ]
+"179
+} 0
+"230
 [v _Update_Current_Date_Time Update_Current_Date_Time `(v  1 e 1 0 ]
 {
-"280
+"281
 } 0
 "71 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\I2C.c
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
@@ -278,11 +322,11 @@
 [v I2C_Master_Read@a a `us  1 p 2 0 ]
 "86
 } 0
-"161 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
+"202 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _BCD_2_DEC BCD_2_DEC `(i  1 e 2 0 ]
 {
 [v BCD_2_DEC@to_convert to_convert `i  1 p 2 6 ]
-"163
+"204
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -294,10 +338,10 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"172 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
+"213 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _Set_Time_Date Set_Time_Date `(v  1 e 1 0 ]
 {
-"225
+"226
 } 0
 "62 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\I2C.c
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
@@ -320,11 +364,11 @@
 {
 "32
 } 0
-"166 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
+"207 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _DEC_2_BCD DEC_2_BCD `(i  1 e 2 0 ]
 {
 [v DEC_2_BCD@to_convert to_convert `i  1 p 2 9 ]
-"168
+"209
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]

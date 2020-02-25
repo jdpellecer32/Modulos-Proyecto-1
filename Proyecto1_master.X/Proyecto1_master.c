@@ -54,6 +54,10 @@ void Set_Time_Date();
 void Update_Current_Date_Time();
 void separa_digitos_rtc(void);
 void mostrar_lcd(void);
+void primera_llamada(void);
+void segunda_llamada(void);
+void tercera_llamada(void);
+void apagar_luces(char t);
 
 
 
@@ -89,15 +93,18 @@ void main(void) {
     while(1){
         
         Update_Current_Date_Time(); //Read the current date and time from RTC module
-
         separa_digitos_rtc();       //Separa los digitos en chars para mostrarlos en la lcd
-
         mostrar_lcd();              //imprime en la pantalla LCD la hora y la fecha
+        primera_llamada();
+        segunda_llamada();
+        tercera_llamada();
+        apagar_luces(5);
 
   
     }
     return;
 }
+
 void separa_digitos_rtc(void){
     sec_0 = sec%10;
     sec_1 = (sec/10);
@@ -137,6 +144,40 @@ void mostrar_lcd(void){
         lcd_write_char(sec_0+48);
 }
 
+void primera_llamada(void){
+    // la primera llamada se hara cuando sean las 10:55:05
+    
+    if(hour==10 && min==55 && sec==5){
+        PORTBbits.RB0 = 1;
+    }
+}
+
+void segunda_llamada(void){
+    // la segunda llamada se hara cuando sean las 10:55:10
+    
+    if(hour==10 && min==55 && sec==10){
+        PORTBbits.RB1 = 1;
+    }
+}
+
+void tercera_llamada(void){
+    // la tercera llamada se hara cuando sean las 10:55:15
+    
+    if(hour==10 && min==55 && sec==15){
+        PORTBbits.RB2 = 1;
+    }
+}
+
+void apagar_luces(char t){
+    // las luces se apagaran t segundos despues de la tercera llamada
+    
+    if(hour==10 && min==55 && sec==(15+t)){
+        PORTBbits.RB0 = 0;
+        PORTBbits.RB1 = 0;
+        PORTBbits.RB2 = 0;
+    }
+}
+
 void configPorts(void){
     TRISA = 0;
     //TRISC = 0;
@@ -170,46 +211,6 @@ int DEC_2_BCD (int to_convert){
 
 //Funcion para configurar la hora
 void Set_Time_Date(){
-    /*I2C_Master_Start();
-    I2C_Master_Write(0xD0);                 //Direccion del RTC
-    I2C_Master_Write(0);
-    I2C_Master_Write(DEC_2_BCD(sec));       //actualizar los segundos
-    I2C_Master_Stop();
-    
-    I2C_Master_Start();
-    I2C_Master_Write(0xD0);
-    I2C_Master_Write(DEC_2_BCD(min));       //actualizar los minutos
-    I2C_Master_Stop();
-    
-    I2C_Master_Start();
-    I2C_Master_Write(0xD0);
-    I2C_Master_Write(DEC_2_BCD(hour));      //actualizar la hora
-    I2C_Master_Stop();
-    
-    
-    I2C_Master_Start();
-    I2C_Master_Write(0xD0);
-    I2C_Master_Write(1);                    //actualiza el dia con un 1 siempre, pues no importa
-    I2C_Master_Stop();
-    
-    
-    I2C_Master_Start();
-    I2C_Master_Write(0xD0);
-    I2C_Master_Write(DEC_2_BCD(date));      //actualizar la fecha
-    I2C_Master_Stop();
-    
-    
-    I2C_Master_Start();
-    I2C_Master_Write(0xD0);
-    I2C_Master_Write(DEC_2_BCD(month));     //actualizar el mes
-    I2C_Master_Stop();
-    
-    
-    I2C_Master_Start();
-    I2C_Master_Write(0xD0);
-    I2C_Master_Write(DEC_2_BCD(year));      //actualizar el año
-    I2C_Master_Stop();*/
-    
     I2C_Master_Start();
     I2C_Master_Write(0xD0);                 //Direccion del RTC
     I2C_Master_Write(0);

@@ -2828,6 +2828,10 @@ void Set_Time_Date();
 void Update_Current_Date_Time();
 void separa_digitos_rtc(void);
 void mostrar_lcd(void);
+void primera_llamada(void);
+void segunda_llamada(void);
+void tercera_llamada(void);
+void apagar_luces(char t);
 
 
 
@@ -2863,15 +2867,18 @@ void main(void) {
     while(1){
 
         Update_Current_Date_Time();
-
         separa_digitos_rtc();
-
         mostrar_lcd();
+        primera_llamada();
+        segunda_llamada();
+        tercera_llamada();
+        apagar_luces(5);
 
 
     }
     return;
 }
+
 void separa_digitos_rtc(void){
     sec_0 = sec%10;
     sec_1 = (sec/10);
@@ -2911,6 +2918,40 @@ void mostrar_lcd(void){
         lcd_write_char(sec_0+48);
 }
 
+void primera_llamada(void){
+
+
+    if(hour==10 && min==55 && sec==5){
+        PORTBbits.RB0 = 1;
+    }
+}
+
+void segunda_llamada(void){
+
+
+    if(hour==10 && min==55 && sec==10){
+        PORTBbits.RB1 = 1;
+    }
+}
+
+void tercera_llamada(void){
+
+
+    if(hour==10 && min==55 && sec==15){
+        PORTBbits.RB2 = 1;
+    }
+}
+
+void apagar_luces(char t){
+
+
+    if(hour==10 && min==55 && sec==(15+t)){
+        PORTBbits.RB0 = 0;
+        PORTBbits.RB1 = 0;
+        PORTBbits.RB2 = 0;
+    }
+}
+
 void configPorts(void){
     TRISA = 0;
 
@@ -2944,7 +2985,6 @@ int DEC_2_BCD (int to_convert){
 
 
 void Set_Time_Date(){
-# 213 "Proyecto1_master.c"
     I2C_Master_Start();
     I2C_Master_Write(0xD0);
     I2C_Master_Write(0);
