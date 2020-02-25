@@ -54,9 +54,9 @@ void Set_Time_Date();
 void Update_Current_Date_Time();
 void separa_digitos_rtc(void);
 void mostrar_lcd(void);
-void primera_llamada(void);
-void segunda_llamada(void);
-void tercera_llamada(void);
+void primera_llamada(char h, char m, char s);
+void segunda_llamada(char h, char m, char s);
+void tercera_llamada(char h, char m, char s);
 void apagar_luces(char t);
 
 
@@ -95,10 +95,12 @@ void main(void) {
         Update_Current_Date_Time(); //Read the current date and time from RTC module
         separa_digitos_rtc();       //Separa los digitos en chars para mostrarlos en la lcd
         mostrar_lcd();              //imprime en la pantalla LCD la hora y la fecha
-        primera_llamada();
-        segunda_llamada();
-        tercera_llamada();
-        apagar_luces(5);
+        
+        //Los parametros de las funciones de las llamadas son horas,minutos, segundos en que se activa la llamada.
+        primera_llamada(10, 55, 5);
+        segunda_llamada(10, 55, 10);
+        tercera_llamada(10, 55, 15);
+        apagar_luces(5);            //el parametro indica cuanto tiempo despues se apagarán las luces de llamada.
 
   
     }
@@ -144,26 +146,26 @@ void mostrar_lcd(void){
         lcd_write_char(sec_0+48);
 }
 
-void primera_llamada(void){
-    // la primera llamada se hara cuando sean las 10:55:05
+void primera_llamada(char h, char m, char s){
+    // la primera llamada se hara cuando sean las h:m:s
     
-    if(hour==10 && min==55 && sec==5){
+    if(hour==h && min==m && sec==s){
         PORTBbits.RB0 = 1;
     }
 }
 
-void segunda_llamada(void){
-    // la segunda llamada se hara cuando sean las 10:55:10
+void segunda_llamada(char h, char m, char s){
+    // la segunda llamada se hara cuando sean las h:m:s
     
-    if(hour==10 && min==55 && sec==10){
+    if(hour==h && min==m && sec==s){
         PORTBbits.RB1 = 1;
     }
 }
 
-void tercera_llamada(void){
-    // la tercera llamada se hara cuando sean las 10:55:15
+void tercera_llamada(char h, char m, char s){
+    // la tercera llamada se hara cuando sean las h:m:s
     
-    if(hour==10 && min==55 && sec==15){
+    if(hour==h && min==m && sec==s){
         PORTBbits.RB2 = 1;
     }
 }

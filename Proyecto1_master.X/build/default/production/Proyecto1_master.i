@@ -2828,9 +2828,9 @@ void Set_Time_Date();
 void Update_Current_Date_Time();
 void separa_digitos_rtc(void);
 void mostrar_lcd(void);
-void primera_llamada(void);
-void segunda_llamada(void);
-void tercera_llamada(void);
+void primera_llamada(char h, char m, char s);
+void segunda_llamada(char h, char m, char s);
+void tercera_llamada(char h, char m, char s);
 void apagar_luces(char t);
 
 
@@ -2869,9 +2869,11 @@ void main(void) {
         Update_Current_Date_Time();
         separa_digitos_rtc();
         mostrar_lcd();
-        primera_llamada();
-        segunda_llamada();
-        tercera_llamada();
+
+
+        primera_llamada(10, 55, 5);
+        segunda_llamada(10, 55, 10);
+        tercera_llamada(10, 55, 15);
         apagar_luces(5);
 
 
@@ -2918,26 +2920,26 @@ void mostrar_lcd(void){
         lcd_write_char(sec_0+48);
 }
 
-void primera_llamada(void){
+void primera_llamada(char h, char m, char s){
 
 
-    if(hour==10 && min==55 && sec==5){
+    if(hour==h && min==m && sec==s){
         PORTBbits.RB0 = 1;
     }
 }
 
-void segunda_llamada(void){
+void segunda_llamada(char h, char m, char s){
 
 
-    if(hour==10 && min==55 && sec==10){
+    if(hour==h && min==m && sec==s){
         PORTBbits.RB1 = 1;
     }
 }
 
-void tercera_llamada(void){
+void tercera_llamada(char h, char m, char s){
 
 
-    if(hour==10 && min==55 && sec==15){
+    if(hour==h && min==m && sec==s){
         PORTBbits.RB2 = 1;
     }
 }
