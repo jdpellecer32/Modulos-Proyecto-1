@@ -29,6 +29,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "oscilador.h"
 #include "LCD.h"
 #include "I2C.h"
@@ -58,6 +59,7 @@ void primera_llamada(char h, char m, char s);
 void segunda_llamada(char h, char m, char s);
 void tercera_llamada(char h, char m, char s);
 void apagar_luces(char t);
+void check_infrarrojo(void);
 
 
 
@@ -76,8 +78,13 @@ int month = 02;
 int year = 20;
     /*Time and Date Set*/
 
+
+uint8_t sens = 0;
+uint8_t AR1;
+
+
 void main(void) {
-    initOsci4MHZ();
+    initOsci8MHZ();
     configPorts();
     lcd_init();         //se inicializa la pantalla
     I2C_Master_Init(100000);        //se inicializa el modo maestro con una frecuencia de 100k
@@ -101,7 +108,11 @@ void main(void) {
         segunda_llamada(10, 55, 10);
         tercera_llamada(10, 55, 15);
         apagar_luces(5);            //el parametro indica cuanto tiempo despues se apagarán las luces de llamada.
-
+        
+        check_infrarrojo();         //funcion que revisa el sensor infrarrojo
+        
+        //lcd_set_cursor(1, 1);             //esto sirve para revisar el contador en la lcd
+        //lcd_write_char(sens+48);
   
     }
     return;
@@ -183,7 +194,7 @@ void apagar_luces(char t){
 void configPorts(void){
     TRISA = 0;
     //TRISC = 0;
-    TRISD = 0;
+    TRISD = 0b00000001;     //el pin RDO es entrada digital (sensor infrarrojo))
     TRISE = 0;
     TRISB = 0;       
     
@@ -280,4 +291,23 @@ void Update_Current_Date_Time(){
    I2C_Master_Read(0);
    I2C_Master_Stop();
 
+}
+
+//*********************************Sensor infrarrojo***************************
+void check_infrarrojo(void){
+    if (PORTDbits.RD0 == 0){
+            AR1=1; // CAMBIO DE ESTADO DEL BOTON
+        }
+        else {
+            
+            if(AR1 == 1){
+                sens++; // INCREMENTO DE CONTADOR
+                AR1 = 0; // REGRESO AL BOTON ESTADO INICIAL
+                __delay_ms(5); // DELAY POR SI LAS MOSCAS
+            }
+                
+        }
+        if (sens==255){
+                sens = 0; 
+                }
 }
