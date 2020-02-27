@@ -35,7 +35,7 @@
 #include "I2C.h"
 
 
-#define _XTAL_FREQ 4000000
+#define _XTAL_FREQ 8000000
 
 #define RS RB7
 #define E RD7
@@ -49,6 +49,7 @@
 #define D7 RA7
 
 void configPorts(void);
+void configInterrupciones(void);
 int  BCD_2_DEC(int to_convert);
 int DEC_2_BCD (int to_convert);
 void Set_Time_Date();
@@ -60,13 +61,17 @@ void segunda_llamada(char h, char m, char s);
 void tercera_llamada(char h, char m, char s);
 void apagar_luces(char t);
 void check_infrarrojo(void);
+void slave_1(uint8_t sensor);
+void slave_2(void);
+void slave_3(void);
+void boton_lcd(void);
 
 
 
 float pot;
 //int sec, min, hour, day, date, month, year;
 
-char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1;
+char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1, modo, limpiar_lcd;
 
 //Este segmento sirve para configurar la hora y solo se activa cuando se desee configurar.
 int sec = 00;
@@ -77,15 +82,29 @@ int day = 1;
 int month = 02;
 int year = 20;
     /*Time and Date Set*/
-
-
 uint8_t sens = 0;
-uint8_t AR1;
+uint8_t AR1, s_temperatura, s_humo, s_temblor;
+
+void __interrupt() isr(void){
+    
+    if (INTCONbits.RBIF == 1){
+         INTCONbits.RBIF = 0;
+         //INTCONbits.GIE = 0;
+        if (PORTBbits.RB4 == 1){
+            modo++;               //modo LCD
+            lcd_clear();
+            limpiar_lcd=1;
+            __delay_ms(200);
+    }
+    //INTCONbits.GIE = 1; 
+}
+}
 
 
 void main(void) {
     initOsci8MHZ();
     configPorts();
+    configInterrupciones();
     lcd_init();         //se inicializa la pantalla
     I2C_Master_Init(100000);        //se inicializa el modo maestro con una frecuencia de 100k
     
@@ -97,11 +116,14 @@ void main(void) {
 
     Set_Time_Date();      //Solo se activa cuando se desee configurar la hora
     
+    s_humo = 0;
+    s_temblor = 0;
+    modo=0;
+    
     while(1){
         
         Update_Current_Date_Time(); //Read the current date and time from RTC module
-        separa_digitos_rtc();       //Separa los digitos en chars para mostrarlos en la lcd
-        mostrar_lcd();              //imprime en la pantalla LCD la hora y la fecha
+        boton_lcd();            //En esta funcion se decide que se mostrara en la lcd
         
         //Los parametros de las funciones de las llamadas son horas,minutos, segundos en que se activa la llamada.
         primera_llamada(10, 55, 5);
@@ -109,13 +131,56 @@ void main(void) {
         tercera_llamada(10, 55, 15);
         apagar_luces(5);            //el parametro indica cuanto tiempo despues se apagarán las luces de llamada.
         
-        check_infrarrojo();         //funcion que revisa el sensor infrarrojo
+        //slave_1(1);
+        //slave_1(2);
+        //slave_1(3);
         
-        //lcd_set_cursor(1, 1);             //esto sirve para revisar el contador en la lcd
-        //lcd_write_char(sens+48);
+        //PORTBbits.RB0 =s_humo;
+        //PORTBbits.RB1 = s_temblor;
+        
+        /*lcd_set_cursor(1, 1);            
+        lcd_write_char(s_humo+48);
+        lcd_set_cursor(2, 1);            
+        lcd_write_char(s_temblor+48);*/
+        if(limpiar_lcd==1){
+            lcd_clear();
+            limpiar_lcd=0;
+        }else
+            limpiar_lcd=0;
+                
   
     }
     return;
+}
+
+void boton_lcd(void){
+    if(modo==0){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Fecha:");
+        lcd_set_cursor(2, 1);
+        lcd_write_string("Hora:");
+        separa_digitos_rtc();       //Separa los digitos en chars para mostrarlos en la lcd
+        mostrar_lcd();          //imprime en la pantalla LCD la hora y la fecha
+        
+    }else if(modo==1){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Contador:");
+        check_infrarrojo();         //funcion que revisa el sensor infrarrojo
+        lcd_set_cursor(2, 1);             //esto sirve para revisar el contador en la lcd
+        lcd_write_char(sens+48);
+        
+    }else if (modo==2){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Temperatura:");
+    }else if (modo==3){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Humo:");
+    }else if (modo==4){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Temblor:");
+    }else if(modo>4){
+        modo=0;
+    }
 }
 
 void separa_digitos_rtc(void){
@@ -196,7 +261,7 @@ void configPorts(void){
     //TRISC = 0;
     TRISD = 0b00000001;     //el pin RDO es entrada digital (sensor infrarrojo))
     TRISE = 0;
-    TRISB = 0;       
+    TRISB = 0b00010000;     // el pin RB4 es entrada digital (boton para modo de lcd))       
     
     PORTA = 0;
     //PORTC = 0;
@@ -204,9 +269,19 @@ void configPorts(void){
     PORTE = 0;
     PORTB = 0;
     
+    
     ANSEL = 0;
     ANSELH = 0;
 
+}
+
+void configInterrupciones(void){
+    INTCONbits.GIE = 1;     //Habilita las interrupciones
+    INTCONbits.PEIE =   1;     //Habilita las interrupciones de los perifericos
+    
+    INTCONbits.RBIE = 1;        //Interrupcion del PORTB
+    INTCONbits.RBIF = 0;        //Bandera de interrupcion del PORTB        
+    IOCBbits.IOCB4 = 1;         //Se habilita la interrupcion en el RB4          
 }
 
 //************************************Funciones para el RTC*********************************
@@ -310,4 +385,57 @@ void check_infrarrojo(void){
         if (sens==255){
                 sens = 0; 
                 }
+}
+
+//***********Funciones para solicitar o enviar datos a los slaves**************
+
+void slave_1(uint8_t sensor){
+    switch(sensor){
+        case 1:
+            I2C_Master_Start();
+            I2C_Master_Write(0x10);      //aqui va la direccion del sensor 1 (el maestro recibe el dato))
+            I2C_Master_Write(sensor);
+            I2C_Master_Stop();
+            __delay_ms(100);
+            
+            I2C_Master_Start();
+            I2C_Master_Write(0x11);
+            s_temperatura = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            __delay_ms(100);
+            break;
+        case 2:
+            I2C_Master_Start();
+            I2C_Master_Write(0x10);      //aqui va la direccion del sensor 1 (el maestro recibe el dato))
+            I2C_Master_Write(sensor);
+            I2C_Master_Stop();
+            __delay_ms(100);
+            
+            I2C_Master_Start();
+            I2C_Master_Write(0x11);
+            s_humo = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            __delay_ms(100);
+            break;
+        case 3:
+            I2C_Master_Start();
+            I2C_Master_Write(0x10);      //aqui va la direccion del sensor 1 (el maestro recibe el dato))
+            I2C_Master_Write(sensor);
+            I2C_Master_Stop();
+            __delay_ms(100);
+            
+            I2C_Master_Start();
+            I2C_Master_Write(0x11);
+            s_temblor = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            __delay_ms(100);
+            break;     
+    }
+    
+}
+void slave_2(void){
+    
+}
+void slave_3(void){
+    
 }

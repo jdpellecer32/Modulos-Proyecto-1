@@ -2907,6 +2907,7 @@ void I2C_Slave_Init(uint8_t address);
 # 35 "Proyecto1_master.c" 2
 # 51 "Proyecto1_master.c"
 void configPorts(void);
+void configInterrupciones(void);
 int BCD_2_DEC(int to_convert);
 int DEC_2_BCD (int to_convert);
 void Set_Time_Date();
@@ -2918,13 +2919,17 @@ void segunda_llamada(char h, char m, char s);
 void tercera_llamada(char h, char m, char s);
 void apagar_luces(char t);
 void check_infrarrojo(void);
+void slave_1(uint8_t sensor);
+void slave_2(void);
+void slave_3(void);
+void boton_lcd(void);
 
 
 
 float pot;
 
 
-char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1;
+char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1, modo, limpiar_lcd;
 
 
 int sec = 00;
@@ -2935,15 +2940,29 @@ int day = 1;
 int month = 02;
 int year = 20;
 
-
-
 uint8_t sens = 0;
-uint8_t AR1;
+uint8_t AR1, s_temperatura, s_humo, s_temblor;
+
+void __attribute__((picinterrupt(""))) isr(void){
+
+    if (INTCONbits.RBIF == 1){
+         INTCONbits.RBIF = 0;
+
+        if (PORTBbits.RB4 == 1){
+            modo++;
+            lcd_clear();
+            limpiar_lcd=1;
+            _delay((unsigned long)((200)*(8000000/4000.0)));
+    }
+
+}
+}
 
 
 void main(void) {
     initOsci8MHZ();
     configPorts();
+    configInterrupciones();
     lcd_init();
     I2C_Master_Init(100000);
 
@@ -2955,25 +2974,60 @@ void main(void) {
 
     Set_Time_Date();
 
+    s_humo = 0;
+    s_temblor = 0;
+    modo=0;
+
     while(1){
 
         Update_Current_Date_Time();
-        separa_digitos_rtc();
-        mostrar_lcd();
+        boton_lcd();
 
 
         primera_llamada(10, 55, 5);
         segunda_llamada(10, 55, 10);
         tercera_llamada(10, 55, 15);
         apagar_luces(5);
-
-        check_infrarrojo();
-
-
+# 145 "Proyecto1_master.c"
+        if(limpiar_lcd==1){
+            lcd_clear();
+            limpiar_lcd=0;
+        }else
+            limpiar_lcd=0;
 
 
     }
     return;
+}
+
+void boton_lcd(void){
+    if(modo==0){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Fecha:");
+        lcd_set_cursor(2, 1);
+        lcd_write_string("Hora:");
+        separa_digitos_rtc();
+        mostrar_lcd();
+
+    }else if(modo==1){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Contador:");
+        check_infrarrojo();
+        lcd_set_cursor(2, 1);
+        lcd_write_char(sens+48);
+
+    }else if (modo==2){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Temperatura:");
+    }else if (modo==3){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Humo:");
+    }else if (modo==4){
+        lcd_set_cursor(1, 1);
+        lcd_write_string("Temblor:");
+    }else if(modo>4){
+        modo=0;
+    }
 }
 
 void separa_digitos_rtc(void){
@@ -3054,7 +3108,7 @@ void configPorts(void){
 
     TRISD = 0b00000001;
     TRISE = 0;
-    TRISB = 0;
+    TRISB = 0b00010000;
 
     PORTA = 0;
 
@@ -3062,9 +3116,19 @@ void configPorts(void){
     PORTE = 0;
     PORTB = 0;
 
+
     ANSEL = 0;
     ANSELH = 0;
 
+}
+
+void configInterrupciones(void){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
+    IOCBbits.IOCB4 = 1;
 }
 
 
@@ -3161,11 +3225,64 @@ void check_infrarrojo(void){
             if(AR1 == 1){
                 sens++;
                 AR1 = 0;
-                _delay((unsigned long)((5)*(4000000/4000.0)));
+                _delay((unsigned long)((5)*(8000000/4000.0)));
             }
 
         }
         if (sens==255){
                 sens = 0;
                 }
+}
+
+
+
+void slave_1(uint8_t sensor){
+    switch(sensor){
+        case 1:
+            I2C_Master_Start();
+            I2C_Master_Write(0x10);
+            I2C_Master_Write(sensor);
+            I2C_Master_Stop();
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+
+            I2C_Master_Start();
+            I2C_Master_Write(0x11);
+            s_temperatura = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+            break;
+        case 2:
+            I2C_Master_Start();
+            I2C_Master_Write(0x10);
+            I2C_Master_Write(sensor);
+            I2C_Master_Stop();
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+
+            I2C_Master_Start();
+            I2C_Master_Write(0x11);
+            s_humo = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+            break;
+        case 3:
+            I2C_Master_Start();
+            I2C_Master_Write(0x10);
+            I2C_Master_Write(sensor);
+            I2C_Master_Stop();
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+
+            I2C_Master_Start();
+            I2C_Master_Write(0x11);
+            s_temblor = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+            break;
+    }
+
+}
+void slave_2(void){
+
+}
+void slave_3(void){
+
 }
