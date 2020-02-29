@@ -2933,7 +2933,7 @@ char b1(float m);
 float pot;
 
 
-char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1, modo, limpiar_lcd, temperatura, sismo;
+char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1, modo, limpiar_lcd, temperatura, sismo, humo;
 char num_case(uint8_t num);
 char s1[5] = "";
 
@@ -3035,6 +3035,7 @@ void boton_lcd(void){
     }else if (modo==4){
         lcd_set_cursor(1, 1);
         lcd_write_string("Humo:");
+        slave_3();
 
     }else if(modo>4){
         modo=0;
@@ -3286,7 +3287,25 @@ void slave_2(void){
 
 }
 void slave_3(void){
+        I2C_Master_Start();
+        I2C_Master_Write(0x31);
+        humo = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
 
+        if (humo == 1){
+        lcd_set_cursor(2, 1);
+        lcd_write_string("Presente");
+        _delay((unsigned long)((5000)*(8000000/4000.0)));
+
+
+        }
+        else {
+
+        lcd_set_cursor(2, 1);
+        lcd_write_string("Ausente ");
+
+        }
 }
 
 
