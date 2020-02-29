@@ -2919,17 +2919,24 @@ void segunda_llamada(char h, char m, char s);
 void tercera_llamada(char h, char m, char s);
 void apagar_luces(char t);
 void check_infrarrojo(void);
-void slave_1(uint8_t sensor);
+void slave_1();
 void slave_2(void);
 void slave_3(void);
 void boton_lcd(void);
+
+char b2(float m);
+char b0(float m);
+char b1(float m);
 
 
 
 float pot;
 
 
-char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1, modo, limpiar_lcd;
+char sec_0, sec_1, min_0, min_1, hour_0, hour_1, date_0, date_1, month_0, month_1, year_0, year_1, modo, limpiar_lcd, temperatura;
+char num_case(uint8_t num);
+char s1[5] = "";
+
 
 
 int sec = 00;
@@ -2989,7 +2996,7 @@ void main(void) {
         tercera_llamada(10, 55, 15);
         apagar_luces(5);
         check_infrarrojo();
-# 146 "Proyecto1_master.c"
+# 150 "Proyecto1_master.c"
         if(limpiar_lcd==1){
             lcd_clear();
             limpiar_lcd=0;
@@ -3019,6 +3026,8 @@ void boton_lcd(void){
     }else if (modo==2){
         lcd_set_cursor(1, 1);
         lcd_write_string("Temperatura:");
+        slave_1();
+
     }else if (modo==3){
         lcd_set_cursor(1, 1);
         lcd_write_string("Humo:");
@@ -3236,48 +3245,20 @@ void check_infrarrojo(void){
 
 
 
-void slave_1(uint8_t sensor){
-    switch(sensor){
-        case 1:
-            I2C_Master_Start();
-            I2C_Master_Write(0x10);
-            I2C_Master_Write(sensor);
-            I2C_Master_Stop();
-            _delay((unsigned long)((100)*(8000000/4000.0)));
+void slave_1(){
+    I2C_Master_Start();
+    I2C_Master_Write(0x11);
+    temperatura = I2C_Master_Read(0);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(8000000/4000.0)));
 
-            I2C_Master_Start();
-            I2C_Master_Write(0x11);
-            s_temperatura = I2C_Master_Read(0);
-            I2C_Master_Stop();
-            _delay((unsigned long)((100)*(8000000/4000.0)));
-            break;
-        case 2:
-            I2C_Master_Start();
-            I2C_Master_Write(0x10);
-            I2C_Master_Write(sensor);
-            I2C_Master_Stop();
-            _delay((unsigned long)((100)*(8000000/4000.0)));
-
-            I2C_Master_Start();
-            I2C_Master_Write(0x11);
-            s_humo = I2C_Master_Read(0);
-            I2C_Master_Stop();
-            _delay((unsigned long)((100)*(8000000/4000.0)));
-            break;
-        case 3:
-            I2C_Master_Start();
-            I2C_Master_Write(0x10);
-            I2C_Master_Write(sensor);
-            I2C_Master_Stop();
-            _delay((unsigned long)((100)*(8000000/4000.0)));
-
-            I2C_Master_Start();
-            I2C_Master_Write(0x11);
-            s_temblor = I2C_Master_Read(0);
-            I2C_Master_Stop();
-            _delay((unsigned long)((100)*(8000000/4000.0)));
-            break;
-    }
+    lcd_set_cursor(2, 1);
+    s1[2] = b0(temperatura);
+    s1[1] = b1(temperatura);
+    s1[0] = b2(temperatura);
+    lcd_write_string(s1);
+    lcd_write_char(223);
+    lcd_write_string("C");
 
 }
 void slave_2(void){
@@ -3285,4 +3266,81 @@ void slave_2(void){
 }
 void slave_3(void){
 
+}
+
+
+
+char num_case(uint8_t num){
+    char r;
+    switch(num){
+        case 0:
+            r = '0';
+            break;
+        case 1:
+            r = '1';
+            break;
+        case 2:
+            r = '2';
+            break;
+        case 3:
+            r = '3';
+            break;
+        case 4:
+            r = '4';
+            break;
+        case 5:
+            r = '5';
+            break;
+        case 6:
+            r = '6';
+            break;
+        case 7:
+            r = '7';
+            break;
+        case 8:
+            r = '8';
+            break;
+        case 9:
+            r = '9';
+            break;
+    }
+    return r;
+}
+
+char b2(float m){
+    uint8_t bb2;
+    float local;
+    char p2;
+
+    bb2 = m/100;
+    p2 = num_case(bb2);
+    return p2;
+}
+
+char b1(float m){
+    uint8_t bb2;
+    uint8_t bb1;
+    uint8_t local;
+    char p1;
+
+    bb2 = m/100;
+    local = m-bb2*100;
+    bb1 = local/10;
+    p1 = num_case(bb1);
+    return p1;
+}
+
+char b0(float m){
+    uint8_t bb2;
+    uint8_t bb1;
+    uint8_t bb0;
+    uint8_t local;
+    char p0;
+
+    bb2 = m/100;
+    local = m-bb2*100;
+    bb1 = local/10;
+    bb0 = local-bb1*10;
+    p0 = num_case(bb0);
+    return p0;
 }

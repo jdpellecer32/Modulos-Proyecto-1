@@ -1,39 +1,39 @@
-[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[p LITE_MODE AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16F887 ]
-[d frameptr 0 ]
-"12 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\ADC.c
+[d frameptr 6 ]
+"12 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\ADC.c
 [v _ADC_CONFIG ADC_CONFIG `(v  1 e 1 0 ]
 "114
 [v _ADC_INTERRUPT ADC_INTERRUPT `(v  1 e 1 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+"43 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
-"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"29 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\I2C.c
+"29 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\I2C.c
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "90
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
-"37 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\Slave_Temperatura.c
+"37 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\Slave_Temperatura.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 "77
 [v _main main `(v  1 e 1 0 ]
-[s S442 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S214 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -42,15 +42,15 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"482 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[s S451 . 1 `uc 1 . 1 0 :2:0 
+"482 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[s S223 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S456 . 1 `S442 1 . 1 0 `S451 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES456  1 e 1 @11 ]
-[s S22 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S228 . 1 `S214 1 . 1 0 `S223 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES228  1 e 1 @11 ]
+[s S176 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -59,35 +59,35 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S30 . 1 `S22 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES30  1 e 1 @12 ]
+[u S184 . 1 `S176 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES184  1 e 1 @12 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S89 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S445 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "870
-[s S95 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S451 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S100 . 1 `S89 1 . 1 0 `S95 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES100  1 e 1 @20 ]
+[u S456 . 1 `S445 1 . 1 0 `S451 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES456  1 e 1 @20 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-[s S43 . 1 `uc 1 ADON 1 0 :1:0 
+[s S22 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1276
-[s S48 . 1 `uc 1 . 1 0 :1:0 
+[s S27 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -96,17 +96,17 @@
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S57 . 1 `uc 1 . 1 0 :1:0 
+[s S36 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S60 . 1 `uc 1 . 1 0 :1:0 
+[s S39 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S63 . 1 `S43 1 . 1 0 `S48 1 . 1 0 `S57 1 . 1 0 `S60 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES63  1 e 1 @31 ]
+[u S42 . 1 `S22 1 . 1 0 `S27 1 . 1 0 `S36 1 . 1 0 `S39 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES42  1 e 1 @31 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
-[s S340 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S104 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -116,11 +116,11 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S349 . 1 `S340 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES349  1 e 1 @133 ]
+[u S113 . 1 `S104 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES113  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S391 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S155 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -130,11 +130,11 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1495
-[u S400 . 1 `S391 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES400  1 e 1 @134 ]
+[u S164 . 1 `S155 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES164  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-[s S540 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S327 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -144,19 +144,19 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S549 . 1 `S540 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES549  1 e 1 @135 ]
+[u S336 . 1 `S327 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES336  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S361 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S125 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
 ]
 "1677
-[u S366 . 1 `S361 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES366  1 e 1 @137 ]
-[s S423 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S130 . 1 `S125 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES130  1 e 1 @137 ]
+[s S195 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -165,11 +165,11 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S431 . 1 `S423 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES431  1 e 1 @140 ]
+[u S203 . 1 `S195 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES203  1 e 1 @140 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S561 . 1 `uc 1 SEN 1 0 :1:0 
+[s S348 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -179,13 +179,13 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S570 . 1 `S561 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES570  1 e 1 @145 ]
+[u S357 . 1 `S348 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES357  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S116 . 1 `uc 1 BF 1 0 :1:0 
+[s S472 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -195,51 +195,51 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "2231
-[s S125 . 1 `uc 1 . 1 0 :2:0 
+[s S481 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S130 . 1 `uc 1 . 1 0 :2:0 
+[s S486 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S136 . 1 `uc 1 . 1 0 :2:0 
+[s S492 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S141 . 1 `uc 1 . 1 0 :2:0 
+[s S497 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S146 . 1 `uc 1 . 1 0 :2:0 
+[s S502 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S151 . 1 `uc 1 . 1 0 :2:0 
+[s S507 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S156 . 1 `S116 1 . 1 0 `S125 1 . 1 0 `S130 1 . 1 0 `S136 1 . 1 0 `S141 1 . 1 0 `S146 1 . 1 0 `S151 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES156  1 e 1 @148 ]
-[s S304 . 1 `uc 1 . 1 0 :4:0 
+[u S512 . 1 `S472 1 . 1 0 `S481 1 . 1 0 `S486 1 . 1 0 `S492 1 . 1 0 `S497 1 . 1 0 `S502 1 . 1 0 `S507 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES512  1 e 1 @148 ]
+[s S68 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2991
-[u S310 . 1 `S304 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES310  1 e 1 @159 ]
+[u S74 . 1 `S68 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES74  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
-[s S319 . 1 `uc 1 ANS0 1 0 :1:0 
+[s S83 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -249,11 +249,11 @@
 `uc 1 ANS7 1 0 :1:7 
 ]
 "3404
-[u S328 . 1 `S319 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES328  1 e 1 @392 ]
+[u S92 . 1 `S83 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES92  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-[s S374 . 1 `uc 1 ANS8 1 0 :1:0 
+[s S138 . 1 `uc 1 ANS8 1 0 :1:0 
 `uc 1 ANS9 1 0 :1:1 
 `uc 1 ANS10 1 0 :1:2 
 `uc 1 ANS11 1 0 :1:3 
@@ -261,8 +261,8 @@
 `uc 1 ANS13 1 0 :1:5 
 ]
 "3464
-[u S381 . 1 `S374 1 . 1 0 ]
-[v _ANSELHbits ANSELHbits `VES381  1 e 1 @393 ]
+[u S145 . 1 `S138 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES145  1 e 1 @393 ]
 "3587
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
 "3641
@@ -281,7 +281,7 @@
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4460
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
-"33 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\Slave_Temperatura.c
+"33 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\Slave_Temperatura.c
 [v _adc1 adc1 `uc  1 e 1 0 ]
 [v _z z `uc  1 e 1 0 ]
 [v _eleccion eleccion `uc  1 e 1 0 ]
@@ -294,7 +294,7 @@
 {
 "108
 } 0
-"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
@@ -309,34 +309,34 @@
 [v ___xxtofl@sign sign `uc  1 a 1 4 ]
 "44
 } 0
-"43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+"43 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 66 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 65 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 70 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 69 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 56 ]
+[v ___fltol@f1 f1 `d  1 p 4 60 ]
 "70
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S891 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S882 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S896 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S899 . 4 `l 1 i 4 0 `d 1 f 4 0 `S891 1 fAsBytes 4 0 `S896 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S899  1 a 4 30 ]
+[s S887 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S890 . 4 `l 1 i 4 0 `d 1 f 4 0 `S882 1 fAsBytes 4 0 `S887 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S890  1 a 4 30 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 24 ]
-[s S968 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 25 ]
+[s S959 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S971 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S968 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S971  1 a 2 34 ]
+[u S962 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S959 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S962  1 a 2 34 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 29 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 28 ]
+[v ___flmul@aexp aexp `uc  1 a 1 24 ]
 "9
 [v ___flmul@sign sign `uc  1 a 1 23 ]
 "8
@@ -344,7 +344,7 @@
 [v ___flmul@a a `d  1 p 4 14 ]
 "205
 } 0
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 {
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
@@ -358,23 +358,23 @@
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 4 ]
 "60
 } 0
-"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 55 ]
+[v ___fladd@grs grs `uc  1 a 1 59 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 54 ]
+[v ___fladd@bexp bexp `uc  1 a 1 58 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 53 ]
+[v ___fladd@aexp aexp `uc  1 a 1 57 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 52 ]
+[v ___fladd@signs signs `uc  1 a 1 56 ]
 "10
 [v ___fladd@b b `d  1 p 4 36 ]
 [v ___fladd@a a `d  1 p 4 40 ]
 "237
 } 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
@@ -387,7 +387,7 @@
 [v ___awdiv@dividend dividend `i  1 p 2 5 ]
 "41
 } 0
-"90 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\I2C.c
+"90 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\I2C.c
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
 {
 [v I2C_Slave_Init@address address `uc  1 a 1 wreg ]
@@ -396,7 +396,7 @@
 [v I2C_Slave_Init@address address `uc  1 a 1 3 ]
 "102
 } 0
-"114 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\ADC.c
+"114 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\ADC.c
 [v _ADC_INTERRUPT ADC_INTERRUPT `(v  1 e 1 0 ]
 {
 "119
@@ -410,7 +410,7 @@
 [v ADC_CONFIG@canal canal `uc  1 a 1 6 ]
 "112
 } 0
-"37 C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorTemperatura.X\Slave_Temperatura.c
+"37 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorTemperatura.X\Slave_Temperatura.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
 "75
