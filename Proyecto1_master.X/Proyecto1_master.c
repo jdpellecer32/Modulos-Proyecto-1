@@ -89,7 +89,8 @@ int day = 1;
 int month = 02;
 int year = 20;
     /*Time and Date Set*/
-uint8_t sens = 0;
+uint8_t unidades = 0;
+uint8_t decenas = 0;
 uint8_t AR1, s_temperatura, s_humo, s_temblor;
 
 void __interrupt() isr(void){
@@ -171,7 +172,19 @@ void boton_lcd(void){
         lcd_set_cursor(1, 1);
         lcd_write_string("Contador:");
         lcd_set_cursor(2, 1);             //esto sirve para revisar el contador en la lcd
-        lcd_write_char(sens+48);
+        
+        if(unidades==10){
+            decenas++;
+            unidades=0;
+            
+        }
+        if(decenas==10){
+            unidades=0;
+            decenas=0;
+        }
+        
+        lcd_write_char(decenas+48);
+        lcd_write_char(unidades+48);
         
     }else if (modo==2){
         lcd_set_cursor(1, 1);
@@ -385,14 +398,14 @@ void check_infrarrojo(void){
         else {
             
             if(AR1 == 1){
-                sens++; // INCREMENTO DE CONTADOR
+                unidades++; // INCREMENTO DE CONTADOR
                 AR1 = 0; // REGRESO AL BOTON ESTADO INICIAL
                 __delay_ms(5); // DELAY POR SI LAS MOSCAS
             }
                 
         }
-        if (sens==255){
-                sens = 0; 
+        if (unidades==255){
+                unidades = 0; 
                 }
 }
 

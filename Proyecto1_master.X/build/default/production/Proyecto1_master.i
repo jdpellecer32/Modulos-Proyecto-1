@@ -2947,7 +2947,8 @@ int day = 1;
 int month = 02;
 int year = 20;
 
-uint8_t sens = 0;
+uint8_t unidades = 0;
+uint8_t decenas = 0;
 uint8_t AR1, s_temperatura, s_humo, s_temblor;
 
 void __attribute__((picinterrupt(""))) isr(void){
@@ -2996,7 +2997,7 @@ void main(void) {
         tercera_llamada(10, 55, 15);
         apagar_luces(5);
         check_infrarrojo();
-# 150 "Proyecto1_master.c"
+# 151 "Proyecto1_master.c"
         if(limpiar_lcd==1){
             lcd_clear();
             limpiar_lcd=0;
@@ -3021,7 +3022,19 @@ void boton_lcd(void){
         lcd_set_cursor(1, 1);
         lcd_write_string("Contador:");
         lcd_set_cursor(2, 1);
-        lcd_write_char(sens+48);
+
+        if(unidades==10){
+            decenas++;
+            unidades=0;
+
+        }
+        if(decenas==10){
+            unidades=0;
+            decenas=0;
+        }
+
+        lcd_write_char(decenas+48);
+        lcd_write_char(unidades+48);
 
     }else if (modo==2){
         lcd_set_cursor(1, 1);
@@ -3235,14 +3248,14 @@ void check_infrarrojo(void){
         else {
 
             if(AR1 == 1){
-                sens++;
+                unidades++;
                 AR1 = 0;
                 _delay((unsigned long)((5)*(8000000/4000.0)));
             }
 
         }
-        if (sens==255){
-                sens = 0;
+        if (unidades==255){
+                unidades = 0;
                 }
 }
 
