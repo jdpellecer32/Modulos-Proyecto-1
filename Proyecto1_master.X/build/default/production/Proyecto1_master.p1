@@ -77,15 +77,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "62
 [; ;Proyecto1_master.c: 62: void apagar_luces(char t);
 [v _apagar_luces `(v ~T0 @X0 0 ef1`uc ]
+"63
+[; ;Proyecto1_master.c: 63: void check_infrarrojo(void);
+[v _check_infrarrojo `(v ~T0 @X0 0 ef ]
 "57
 [; ;Proyecto1_master.c: 57: void separa_digitos_rtc(void);
 [v _separa_digitos_rtc `(v ~T0 @X0 0 ef ]
 "58
 [; ;Proyecto1_master.c: 58: void mostrar_lcd(void);
 [v _mostrar_lcd `(v ~T0 @X0 0 ef ]
-"63
-[; ;Proyecto1_master.c: 63: void check_infrarrojo(void);
-[v _check_infrarrojo `(v ~T0 @X0 0 ef ]
 "16 ./LCD.h
 [; ;./LCD.h: 16: void lcd_write_char(char a);
 [v _lcd_write_char `(v ~T0 @X0 0 ef1`uc ]
@@ -595,82 +595,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132
 [; ;Proyecto1_master.c: 132:         apagar_luces(5);
 [e ( _apagar_luces (1 -> -> 5 `i `uc ]
-"145
-[; ;Proyecto1_master.c: 145:         if(limpiar_lcd==1){
+"133
+[; ;Proyecto1_master.c: 133:         check_infrarrojo();
+[e ( _check_infrarrojo ..  ]
+"146
+[; ;Proyecto1_master.c: 146:         if(limpiar_lcd==1){
 [e $ ! == -> _limpiar_lcd `i -> 1 `i 150  ]
 {
-"146
-[; ;Proyecto1_master.c: 146:             lcd_clear();
-[e ( _lcd_clear ..  ]
 "147
-[; ;Proyecto1_master.c: 147:             limpiar_lcd=0;
-[e = _limpiar_lcd -> -> 0 `i `uc ]
+[; ;Proyecto1_master.c: 147:             lcd_clear();
+[e ( _lcd_clear ..  ]
 "148
-[; ;Proyecto1_master.c: 148:         }else
+[; ;Proyecto1_master.c: 148:             limpiar_lcd=0;
+[e = _limpiar_lcd -> -> 0 `i `uc ]
+"149
+[; ;Proyecto1_master.c: 149:         }else
 }
 [e $U 151  ]
 [e :U 150 ]
-"149
-[; ;Proyecto1_master.c: 149:             limpiar_lcd=0;
+"150
+[; ;Proyecto1_master.c: 150:             limpiar_lcd=0;
 [e = _limpiar_lcd -> -> 0 `i `uc ]
 [e :U 151 ]
-"152
-[; ;Proyecto1_master.c: 152:     }
+"153
+[; ;Proyecto1_master.c: 153:     }
 }
 [e :U 147 ]
 [e $U 148  ]
 [e :U 149 ]
-"153
-[; ;Proyecto1_master.c: 153:     return;
-[e $UE 146  ]
 "154
-[; ;Proyecto1_master.c: 154: }
+[; ;Proyecto1_master.c: 154:     return;
+[e $UE 146  ]
+"155
+[; ;Proyecto1_master.c: 155: }
 [e :UE 146 ]
 }
-"156
-[; ;Proyecto1_master.c: 156: void boton_lcd(void){
+"157
+[; ;Proyecto1_master.c: 157: void boton_lcd(void){
 [v _boton_lcd `(v ~T0 @X0 1 ef ]
 {
 [e :U _boton_lcd ]
 [f ]
-"157
-[; ;Proyecto1_master.c: 157:     if(modo==0){
+"158
+[; ;Proyecto1_master.c: 158:     if(modo==0){
 [e $ ! == -> _modo `i -> 0 `i 153  ]
 {
-"158
-[; ;Proyecto1_master.c: 158:         lcd_set_cursor(1, 1);
-[e ( _lcd_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "159
-[; ;Proyecto1_master.c: 159:         lcd_write_string("Fecha:");
-[e ( _lcd_write_string (1 :s 3C ]
+[; ;Proyecto1_master.c: 159:         lcd_set_cursor(1, 1);
+[e ( _lcd_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "160
-[; ;Proyecto1_master.c: 160:         lcd_set_cursor(2, 1);
-[e ( _lcd_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;Proyecto1_master.c: 160:         lcd_write_string("Fecha:");
+[e ( _lcd_write_string (1 :s 3C ]
 "161
-[; ;Proyecto1_master.c: 161:         lcd_write_string("Hora:");
-[e ( _lcd_write_string (1 :s 4C ]
+[; ;Proyecto1_master.c: 161:         lcd_set_cursor(2, 1);
+[e ( _lcd_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "162
-[; ;Proyecto1_master.c: 162:         separa_digitos_rtc();
-[e ( _separa_digitos_rtc ..  ]
+[; ;Proyecto1_master.c: 162:         lcd_write_string("Hora:");
+[e ( _lcd_write_string (1 :s 4C ]
 "163
-[; ;Proyecto1_master.c: 163:         mostrar_lcd();
+[; ;Proyecto1_master.c: 163:         separa_digitos_rtc();
+[e ( _separa_digitos_rtc ..  ]
+"164
+[; ;Proyecto1_master.c: 164:         mostrar_lcd();
 [e ( _mostrar_lcd ..  ]
-"165
-[; ;Proyecto1_master.c: 165:     }else if(modo==1){
+"166
+[; ;Proyecto1_master.c: 166:     }else if(modo==1){
 }
 [e $U 154  ]
 [e :U 153 ]
 [e $ ! == -> _modo `i -> 1 `i 155  ]
 {
-"166
-[; ;Proyecto1_master.c: 166:         lcd_set_cursor(1, 1);
-[e ( _lcd_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "167
-[; ;Proyecto1_master.c: 167:         lcd_write_string("Contador:");
-[e ( _lcd_write_string (1 :s 5C ]
+[; ;Proyecto1_master.c: 167:         lcd_set_cursor(1, 1);
+[e ( _lcd_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "168
-[; ;Proyecto1_master.c: 168:         check_infrarrojo();
-[e ( _check_infrarrojo ..  ]
+[; ;Proyecto1_master.c: 168:         lcd_write_string("Contador:");
+[e ( _lcd_write_string (1 :s 5C ]
 "169
 [; ;Proyecto1_master.c: 169:         lcd_set_cursor(2, 1);
 [e ( _lcd_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]

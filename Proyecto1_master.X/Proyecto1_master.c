@@ -130,6 +130,7 @@ void main(void) {
         segunda_llamada(10, 55, 10);
         tercera_llamada(10, 55, 15);
         apagar_luces(5);            //el parametro indica cuanto tiempo despues se apagarán las luces de llamada.
+        check_infrarrojo();         //funcion que revisa el sensor infrarrojo
         
         //slave_1(1);
         //slave_1(2);
@@ -165,7 +166,6 @@ void boton_lcd(void){
     }else if(modo==1){
         lcd_set_cursor(1, 1);
         lcd_write_string("Contador:");
-        check_infrarrojo();         //funcion que revisa el sensor infrarrojo
         lcd_set_cursor(2, 1);             //esto sirve para revisar el contador en la lcd
         lcd_write_char(sens+48);
         

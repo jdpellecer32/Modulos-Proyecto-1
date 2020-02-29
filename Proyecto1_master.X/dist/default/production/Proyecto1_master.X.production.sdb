@@ -54,7 +54,7 @@
 [v _isr isr `II(v  1 e 1 0 ]
 "104
 [v _main main `(v  1 e 1 0 ]
-"156
+"157
 [v _boton_lcd boton_lcd `(v  1 e 1 0 ]
 "186
 [v _separa_digitos_rtc separa_digitos_rtc `(v  1 e 1 0 ]
@@ -274,7 +274,7 @@
 "104
 [v _main main `(v  1 e 1 0 ]
 {
-"154
+"155
 } 0
 "241
 [v _tercera_llamada tercera_llamada `(v  1 e 1 0 ]
@@ -334,7 +334,12 @@
 {
 "285
 } 0
-"156
+"372
+[v _check_infrarrojo check_infrarrojo `(v  1 e 1 0 ]
+{
+"388
+} 0
+"157
 [v _boton_lcd boton_lcd `(v  1 e 1 0 ]
 {
 "184
@@ -397,12 +402,7 @@
 [v lcd_port@a a `uc  1 a 1 0 ]
 "73
 } 0
-"372 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
-[v _check_infrarrojo check_infrarrojo `(v  1 e 1 0 ]
-{
-"388
-} 0
-"249
+"249 E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Proyecto1_master.X\Proyecto1_master.c
 [v _apagar_luces apagar_luces `(v  1 e 1 0 ]
 {
 [v apagar_luces@t t `uc  1 a 1 wreg ]

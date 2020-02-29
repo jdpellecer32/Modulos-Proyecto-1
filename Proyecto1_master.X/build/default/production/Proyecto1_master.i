@@ -2988,7 +2988,8 @@ void main(void) {
         segunda_llamada(10, 55, 10);
         tercera_llamada(10, 55, 15);
         apagar_luces(5);
-# 145 "Proyecto1_master.c"
+        check_infrarrojo();
+# 146 "Proyecto1_master.c"
         if(limpiar_lcd==1){
             lcd_clear();
             limpiar_lcd=0;
@@ -3012,7 +3013,6 @@ void boton_lcd(void){
     }else if(modo==1){
         lcd_set_cursor(1, 1);
         lcd_write_string("Contador:");
-        check_infrarrojo();
         lcd_set_cursor(2, 1);
         lcd_write_char(sens+48);
 
