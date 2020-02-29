@@ -75,6 +75,8 @@ void main(void){
     TRISB = 0xFF;
     TRISD = 0x00;
     
+    PORTD = 0;
+    
     // I2C
     I2C_Slave_Init(0x20);
     

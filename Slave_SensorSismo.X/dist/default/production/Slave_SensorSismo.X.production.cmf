@@ -13,13 +13,13 @@
 %PSECTS
 $dist/default/production\Slave_SensorSismo.X.production.o
 cinit CODE 0 F F 7 2
-text1 CODE 0 9C 9C 1A 2
-text2 CODE 0 16 16 65 2
-maintext CODE 0 7B 7B 21 2
+text1 CODE 0 AA AA 1A 2
+text2 CODE 0 16 16 6D 2
+maintext CODE 0 83 83 27 2
 cstackCOMMON COMMON 1 70 70 4 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 74 74 3 1
-$C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
+$C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 0 2007 2007 2 2
@@ -38,13 +38,13 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST B6-1FFF 2
+CONST C4-1FFF 2
 ENTRY 3-3 2
-ENTRY B6-1FFF 2
+ENTRY C4-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE B6-1FFF 2
+CODE C4-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -52,9 +52,9 @@ SFR3 180-18F 1
 COMMON 77-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE B6-1FFF 2
+STRCODE C4-1FFF 2
 STRING 3-3 2
-STRING B6-1FFF 2
+STRING C4-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -69,66 +69,74 @@ STRING B6-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Slave_SensorSismo.X.production.o
-F cinit CODE >643:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-F cinit CODE >646:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-F cinit CODE >663:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-10 cinit CODE >664:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-11 cinit CODE >665:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-12 cinit CODE >671:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-12 cinit CODE >673:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-13 cinit CODE >674:C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.s
-4 intentry CODE >35:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-16 text2 CODE >35:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-16 text2 CODE >36:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-1C text2 CODE >38:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-1D text2 CODE >40:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-25 text2 CODE >41:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-29 text2 CODE >42:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-2A text2 CODE >43:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-2B text2 CODE >44:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-2C text2 CODE >47:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-36 text2 CODE >49:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-3C text2 CODE >51:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-3D text2 CODE >52:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-3E text2 CODE >53:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-44 text2 CODE >54:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-4A text2 CODE >55:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-4F text2 CODE >57:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-58 text2 CODE >58:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-5E text2 CODE >59:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-61 text2 CODE >60:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-65 text2 CODE >61:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-66 text2 CODE >62:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-6B text2 CODE >63:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-71 text2 CODE >64:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-71 text2 CODE >66:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-74 text2 CODE >68:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-9C text1 CODE >90:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-9D text1 CODE >92:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-A1 text1 CODE >93:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-A5 text1 CODE >94:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-A9 text1 CODE >95:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-AB text1 CODE >96:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-AC text1 CODE >97:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-AD text1 CODE >98:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-AE text1 CODE >99:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-AF text1 CODE >100:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-B2 text1 CODE >101:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-B5 text1 CODE >102:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\I2C.c
-7B maintext CODE >70:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-7B maintext CODE >71:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-7E maintext CODE >72:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-7F maintext CODE >73:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-82 maintext CODE >74:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-83 maintext CODE >75:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-85 maintext CODE >76:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-86 maintext CODE >79:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-8C maintext CODE >84:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-92 maintext CODE >85:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-94 maintext CODE >86:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-95 maintext CODE >87:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-96 maintext CODE >89:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
-97 maintext CODE >90:C:\Users\Daniela Baldizon\Documents\GitHub\Proyecto\Slave_SensorSismo.X\Slave_Sismo.c
+F cinit CODE >645:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+F cinit CODE >648:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+F cinit CODE >665:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+10 cinit CODE >666:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+11 cinit CODE >667:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+12 cinit CODE >673:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+12 cinit CODE >675:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+13 cinit CODE >676:C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.
+4 intentry CODE >35:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+16 text2 CODE >35:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+16 text2 CODE >36:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+1C text2 CODE >38:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+1D text2 CODE >40:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+26 text2 CODE >41:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+2A text2 CODE >42:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+2B text2 CODE >43:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+2C text2 CODE >44:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+2E text2 CODE >45:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+2E text2 CODE >47:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+38 text2 CODE >49:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+3E text2 CODE >51:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+3F text2 CODE >52:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+40 text2 CODE >53:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+48 text2 CODE >54:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+4E text2 CODE >55:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+53 text2 CODE >57:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+5C text2 CODE >58:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+62 text2 CODE >59:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+65 text2 CODE >60:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+69 text2 CODE >61:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+6A text2 CODE >62:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+6F text2 CODE >63:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+78 text2 CODE >64:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+78 text2 CODE >66:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+7C text2 CODE >67:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+7C text2 CODE >68:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+AA text1 CODE >90:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+AB text1 CODE >92:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+AF text1 CODE >93:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+B3 text1 CODE >94:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+B7 text1 CODE >95:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+B9 text1 CODE >96:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+BA text1 CODE >97:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+BB text1 CODE >98:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+BC text1 CODE >99:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+BD text1 CODE >100:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+C0 text1 CODE >101:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+C3 text1 CODE >102:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\I2C.c
+83 maintext CODE >70:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+83 maintext CODE >71:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+86 maintext CODE >72:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+87 maintext CODE >73:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+8A maintext CODE >74:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+8B maintext CODE >75:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+8D maintext CODE >76:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+8E maintext CODE >78:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+91 maintext CODE >81:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+98 maintext CODE >84:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+98 maintext CODE >86:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+9E maintext CODE >87:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A0 maintext CODE >88:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A1 maintext CODE >89:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A2 maintext CODE >90:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A2 maintext CODE >91:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A3 maintext CODE >92:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A5 maintext CODE >93:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A6 maintext CODE >94:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
+A7 maintext CODE >95:E:\Documents\Archivos\UVG\2020\Digital 2\Proyecto 1\Modulos-Proyecto-1\Slave_SensorSismo.X\Slave_Sismo.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -152,20 +160,20 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _BF 4A0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-_main F6 0 CODE 0 maintext dist/default/production\Slave_SensorSismo.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+_main 106 0 CODE 0 maintext dist/default/production\Slave_SensorSismo.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
-start 18 0 CODE 0 init C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
+start 18 0 CODE 0 init C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -173,9 +181,7 @@ __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _SSPCONbits 14 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-___stacklo 0 0 ABS 0 - C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-_I2C_Slave_Init 138 0 CODE 0 text1 dist/default/production\Slave_SensorSismo.X.production.o
+_I2C_Slave_Init 154 0 CODE 0 text1 dist/default/production\Slave_SensorSismo.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Slave_SensorSismo.X.production.o
@@ -185,13 +191,13 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
+___int_sp 0 0 STACK 2 stack C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 2C 0 CODE 0 cinit -
-__end_of_I2C_Slave_Init 16C 0 CODE 0 text1 dist/default/production\Slave_SensorSismo.X.production.o
+__end_of_I2C_Slave_Init 188 0 CODE 0 text1 dist/default/production\Slave_SensorSismo.X.production.o
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
@@ -232,15 +238,17 @@ __S3 0 0 ABS 0 - -
 __CFG_BOR4V$BOR40V 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
-__end_of_ISR F6 0 CODE 0 text2 dist/default/production\Slave_SensorSismo.X.production.o
+__end_of_ISR 106 0 CODE 0 text2 dist/default/production\Slave_SensorSismo.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\DANIEL~1\AppData\Local\Temp\s1vc.o
-__pmaintext F6 0 CODE 0 maintext dist/default/production\Slave_SensorSismo.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+__pmaintext 106 0 CODE 0 maintext dist/default/production\Slave_SensorSismo.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 I2C_Slave_Init@address 73 0 COMMON 1 cstackCOMMON dist/default/production\Slave_SensorSismo.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
+stacklo 0 0 ABS 0 - C:\Users\JOSPEL~1\AppData\Local\Temp\sbgg.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -255,7 +263,7 @@ __Hintentry 18 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 6 0 CODE 0 reset_vec -
 _SSPCON2bits 91 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
-__ptext1 138 0 CODE 0 text1 dist/default/production\Slave_SensorSismo.X.production.o
+__ptext1 154 0 CODE 0 text1 dist/default/production\Slave_SensorSismo.X.production.o
 __ptext2 2C 0 CODE 0 text2 dist/default/production\Slave_SensorSismo.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
@@ -269,8 +277,9 @@ __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Slave_SensorS
 _SSPCON2 91 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 138 0 CODE 0 maintext dist/default/production\Slave_SensorSismo.X.production.o
+__end_of_main 154 0 CODE 0 maintext dist/default/production\Slave_SensorSismo.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
+_PORTD 8 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _SISMO 74 0 COMMON 1 bssCOMMON dist/default/production\Slave_SensorSismo.X.production.o
 _SSPIE 463 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
 _SSPIF 63 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production.o
@@ -314,14 +323,6 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Slave_SensorSismo.X.production
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cstackCOMMON 1 70 70 7 1
-intentry 0 4 8 B2 2
+intentry 0 4 8 C0 2
 reset_vec 0 0 0 3 2
 config 0 2007 400E 2 2
-# OTES Section
-# This section contains data of all the note-psects.  The beginning of the section
-# is indicated by OTES. The first line indicates the name and decimal
-# byte-length of the first note-psect, e.g.
-#   $codecov_info_hdr 16
-# Each line that follows contains the byte-data of the psect in hexadecimal as a
-# space-separated list. These lines are limited to 16 bytes of data.
-%NOTES
