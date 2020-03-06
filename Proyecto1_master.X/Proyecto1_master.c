@@ -33,9 +33,10 @@
 #include "oscilador.h"
 #include "LCD.h"
 #include "I2C.h"
+#include "USART.h"
 
 
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 
 #define RS RB7
 #define E RD7
@@ -65,6 +66,7 @@ void slave_1(void);
 void slave_2(void);
 void slave_3(void);
 void boton_lcd(void);
+void mandar_USART(void);
 
 char b2(float m);
 char b0(float m);
@@ -89,8 +91,8 @@ int day = 1;
 int month = 02;
 int year = 20;
     /*Time and Date Set*/
-uint8_t unidades = 0;
-uint8_t decenas = 0;
+char unidades = 0;
+char decenas = 0;
 uint8_t AR1, s_temperatura, s_humo, s_temblor;
 
 void __interrupt() isr(void){
@@ -110,11 +112,12 @@ void __interrupt() isr(void){
 
 
 void main(void) {
-    initOsci8MHZ();
+    initOsci4MHZ();
     configPorts();
     configInterrupciones();
     lcd_init();         //se inicializa la pantalla
     I2C_Master_Init(100000);        //se inicializa el modo maestro con una frecuencia de 100k
+    init_usart();
     
     //codigo para mostrar los titulos de la informacion de la LCD
     lcd_write_string("Fecha:");
@@ -139,15 +142,9 @@ void main(void) {
         tercera_llamada(10, 55, 15);
         apagar_luces(5);            //el parametro indica cuanto tiempo despues se apagarán las luces de llamada.
         check_infrarrojo();         //funcion que revisa el sensor infrarrojo
+        mandar_USART();
         
         
-        //PORTBbits.RB0 =s_humo;
-        //PORTBbits.RB1 = s_temblor;
-        
-        /*lcd_set_cursor(1, 1);            
-        lcd_write_char(s_humo+48);
-        lcd_set_cursor(2, 1);            
-        lcd_write_char(s_temblor+48);*/
         if(limpiar_lcd==1){
             lcd_clear();
             limpiar_lcd=0;
@@ -158,6 +155,16 @@ void main(void) {
     }
     return;
 }
+
+
+/**************************Comunicacion serial USART***************************/
+void mandar_USART(void){
+    envia_caracter_usart(unidades);
+    //envia_caracter_usart('a');
+    
+    
+}
+/********************************Cambio de modos*******************************/
 
 void boton_lcd(void){
     if(modo==0){

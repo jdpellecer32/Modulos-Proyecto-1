@@ -8,7 +8,7 @@
 
 #include <xc.h>
 #include "LCD.h"
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 
 #define RS RB7
 #define E RD7

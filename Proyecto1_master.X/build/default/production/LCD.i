@@ -2571,19 +2571,19 @@ void lcd_cmd(char a){
     lcd_port(a);
 
     RD7 = 1;
-    _delay((unsigned long)((10)*(8000000/4000.0)));
+    _delay((unsigned long)((10)*(4000000/4000.0)));
     RD7 = 0;
 }
 
 void lcd_init(void){
 
-    _delay((unsigned long)((15)*(8000000/4000.0)));
+    _delay((unsigned long)((15)*(4000000/4000.0)));
     lcd_port(0x00);
-    _delay((unsigned long)((20)*(8000000/4000.0)));
+    _delay((unsigned long)((20)*(4000000/4000.0)));
     lcd_cmd(0x30);
- _delay((unsigned long)((5)*(8000000/4000.0)));
+ _delay((unsigned long)((5)*(4000000/4000.0)));
     lcd_cmd(0x30);
- _delay((unsigned long)((160)*(8000000/4000000.0)));
+ _delay((unsigned long)((160)*(4000000/4000000.0)));
     lcd_cmd(0x30);
 
 
@@ -2617,7 +2617,7 @@ void lcd_write_char(char a){
     lcd_port(a);
 
     RD7 = 1;
-    _delay((unsigned long)((4)*(8000000/4000.0)));
+    _delay((unsigned long)((4)*(4000000/4000.0)));
     RD7 = 0;
 }
 
