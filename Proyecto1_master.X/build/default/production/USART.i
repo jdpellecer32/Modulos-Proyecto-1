@@ -2508,8 +2508,6 @@ void envia_cadena_usart(char* cadena);
 
 
 void init_usart(){
-
-
      TRISCbits.TRISC7=1;
      TRISCbits.TRISC6=0;
 
@@ -2528,7 +2526,6 @@ void init_usart(){
      RCSTAbits.CREN=1;
 
      SPBRG=25;
-     SPBRGH=0;
 
      SYNC = 0;
      SPEN = 1;
@@ -2542,12 +2539,9 @@ void init_usart(){
 
 unsigned char recibe_caracter_usart(){
     if(PIR1bits.RCIF==1){
-        if (RCSTAbits.OERR == 1){
-           RCSTAbits.CREN=0;
-           RCSTAbits.CREN=1;
-        }
     return RCREG;
-    }else
+    }
+    else
         return 0;
 }
 

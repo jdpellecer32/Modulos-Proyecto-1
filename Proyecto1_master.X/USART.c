@@ -15,8 +15,6 @@
 //en una función, a 8bits,a 9600 baudios
 /////////////////////////////////////////////////////
 void init_usart(){
-  
-    
      TRISCbits.TRISC7=1;        //pin RX como una entrada digital
      TRISCbits.TRISC6=0;        //pin TX como una salida digital
      
@@ -35,7 +33,6 @@ void init_usart(){
      RCSTAbits.CREN=1;          //habilita el receptor
      //RCSTA=0b10010000;          //habilitado el USART PIC, recepción 8 bits,  habilitada, asíncrono
      SPBRG=25;                  //9600baudios con un oscilador de 4Mhz
-     SPBRGH=0;                  
      
      SYNC = 0;
      SPEN = 1;
@@ -49,13 +46,10 @@ void init_usart(){
 ////////////////////////////////////////////////////////////
 unsigned char recibe_caracter_usart(){
     if(PIR1bits.RCIF==1){//si el bit5 del registro PIR1 se ha puesto a 1
-        if (RCSTAbits.OERR == 1){
-           RCSTAbits.CREN=0; 
-           RCSTAbits.CREN=1; 
-        }
     return RCREG;//devuelve el dato almacenado en el registro RCREG
-    }else
-        return 0;
+    }
+    else//sino
+        return 0;//retorna sin hacer nada
 }
  
 ///////////////////////////////////////////////
@@ -78,4 +72,3 @@ void envia_cadena_usart(char* cadena){//cadena de caracteres de tipo char
                  //para enviar el siguiente caracter de cadena
     }
 }
-

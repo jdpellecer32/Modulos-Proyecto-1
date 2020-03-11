@@ -3007,7 +3007,11 @@ void main(void) {
         tercera_llamada(10, 55, 15);
         apagar_luces(5);
         check_infrarrojo();
+        slave_1();
+        slave_2();
+        slave_3();
         mandar_USART();
+
 
 
         if(limpiar_lcd==1){
@@ -3024,9 +3028,26 @@ void main(void) {
 
 
 void mandar_USART(void){
+    envia_caracter_usart(200);
+    envia_caracter_usart(sec);
+    envia_caracter_usart(201);
+    envia_caracter_usart(min);
+    envia_caracter_usart(202);
+    envia_caracter_usart(hour);
+    envia_caracter_usart(203);
+    envia_caracter_usart(date);
+    envia_caracter_usart(204);
+    envia_caracter_usart(month);
+    envia_caracter_usart(205);
+    envia_caracter_usart(year);
+    envia_caracter_usart(206);
     envia_caracter_usart(unidades);
-
-
+    envia_caracter_usart(207);
+    envia_caracter_usart(temperatura);
+    envia_caracter_usart(208);
+    envia_caracter_usart(humo);
+    envia_caracter_usart(209);
+    envia_caracter_usart(sismo);
 
 }
 
@@ -3062,15 +3083,47 @@ void boton_lcd(void){
         lcd_set_cursor(1, 1);
         lcd_write_string("Temperatura:");
         slave_1();
+        lcd_set_cursor(2, 1);
+        s1[2] = b0(temperatura);
+        s1[1] = b1(temperatura);
+        s1[0] = b2(temperatura);
+        lcd_write_string(s1);
+        lcd_write_char(223);
+        lcd_write_string("C");
 
     }else if (modo==3){
         lcd_set_cursor(1, 1);
         lcd_write_string("Temblor:");
         slave_2();
+        if (sismo == 1){
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Esta temblando!");
+            _delay((unsigned long)((5000)*(4000000/4000.0)));
+
+
+        }
+        else {
+
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Tranquilo prro ");
+
+        }
     }else if (modo==4){
         lcd_set_cursor(1, 1);
         lcd_write_string("Humo:");
         slave_3();
+        if (humo == 1){
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Presente");
+            _delay((unsigned long)((5000)*(4000000/4000.0)));
+
+        }
+        else {
+
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Ausente ");
+
+        }
 
     }else if(modo>4){
         modo=0;
@@ -3288,15 +3341,7 @@ void slave_1(){
     I2C_Master_Write(0x11);
     temperatura = I2C_Master_Read(0);
     I2C_Master_Stop();
-    _delay((unsigned long)((200)*(4000000/4000.0)));
-
-    lcd_set_cursor(2, 1);
-    s1[2] = b0(temperatura);
-    s1[1] = b1(temperatura);
-    s1[0] = b2(temperatura);
-    lcd_write_string(s1);
-    lcd_write_char(223);
-    lcd_write_string("C");
+    _delay((unsigned long)((5)*(4000000/4000.0)));
 
 }
 void slave_2(void){
@@ -3306,20 +3351,6 @@ void slave_2(void){
     I2C_Master_Stop();
     _delay((unsigned long)((5)*(4000000/4000.0)));
 
-    if (sismo == 1){
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Esta temblando!");
-        _delay((unsigned long)((5000)*(4000000/4000.0)));
-        lcd_clear();
-
-        }
-    else {
-
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Tranquilo prro");
-
-        }
-
 }
 void slave_3(void){
         I2C_Master_Start();
@@ -3328,19 +3359,6 @@ void slave_3(void){
         I2C_Master_Stop();
         _delay((unsigned long)((5)*(4000000/4000.0)));
 
-        if (humo == 1){
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Presente");
-        _delay((unsigned long)((5000)*(4000000/4000.0)));
-
-
-        }
-        else {
-
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Ausente ");
-
-        }
 }
 
 

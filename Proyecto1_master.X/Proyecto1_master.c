@@ -142,7 +142,11 @@ void main(void) {
         tercera_llamada(10, 55, 15);
         apagar_luces(5);            //el parametro indica cuanto tiempo despues se apagarán las luces de llamada.
         check_infrarrojo();         //funcion que revisa el sensor infrarrojo
+        slave_1();
+        slave_2();
+        slave_3();
         mandar_USART();
+        
         
         
         if(limpiar_lcd==1){
@@ -159,9 +163,26 @@ void main(void) {
 
 /**************************Comunicacion serial USART***************************/
 void mandar_USART(void){
+    envia_caracter_usart(200);
+    envia_caracter_usart(sec);
+    envia_caracter_usart(201);
+    envia_caracter_usart(min);
+    envia_caracter_usart(202);
+    envia_caracter_usart(hour);
+    envia_caracter_usart(203);
+    envia_caracter_usart(date);
+    envia_caracter_usart(204);
+    envia_caracter_usart(month);
+    envia_caracter_usart(205);
+    envia_caracter_usart(year);
+    envia_caracter_usart(206);
     envia_caracter_usart(unidades);
-    //envia_caracter_usart('a');
-    
+    envia_caracter_usart(207);
+    envia_caracter_usart(temperatura);
+    envia_caracter_usart(208);
+    envia_caracter_usart(humo);
+    envia_caracter_usart(209);
+    envia_caracter_usart(sismo);
     
 }
 /********************************Cambio de modos*******************************/
@@ -197,15 +218,47 @@ void boton_lcd(void){
         lcd_set_cursor(1, 1);
         lcd_write_string("Temperatura:");
         slave_1();
+        lcd_set_cursor(2, 1);            // ESCRIBE EN LA LCD
+        s1[2] = b0(temperatura);
+        s1[1] = b1(temperatura);
+        s1[0] = b2(temperatura);
+        lcd_write_string(s1);
+        lcd_write_char(223);
+        lcd_write_string("C");
         
     }else if (modo==3){
         lcd_set_cursor(1, 1);
         lcd_write_string("Temblor:");
         slave_2();
+        if (sismo == 1){ 
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Esta temblando!");
+            __delay_ms(5000);
+            //lcd_clear();
+            
+        }
+        else {
+            //lcd_clear();
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Tranquilo prro ");
+
+        }
     }else if (modo==4){
         lcd_set_cursor(1, 1);
         lcd_write_string("Humo:");
         slave_3();
+        if (humo == 1){ 
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Presente");
+            __delay_ms(5000);
+            //lcd_clear();   
+        }
+        else {
+            //lcd_clear();
+            lcd_set_cursor(2, 1);
+            lcd_write_string("Ausente ");
+
+        }
         
     }else if(modo>4){
         modo=0;
@@ -423,15 +476,7 @@ void slave_1(){
     I2C_Master_Write(0x11);      //aqui va la direccion del sensor 1 (el maestro recibe el dato))
     temperatura = I2C_Master_Read(0);
     I2C_Master_Stop();
-    __delay_ms(200);
-    
-    lcd_set_cursor(2, 1);            // ESCRIBE EN LA LCD
-    s1[2] = b0(temperatura);
-    s1[1] = b1(temperatura);
-    s1[0] = b2(temperatura);
-    lcd_write_string(s1);
-    lcd_write_char(223);
-    lcd_write_string("C");
+    __delay_ms(5);
     
 }
 void slave_2(void){
@@ -441,20 +486,6 @@ void slave_2(void){
     I2C_Master_Stop();              //TERMINA LA COMUNICACION
     __delay_ms(5);
     
-    if (sismo == 1){ 
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Esta temblando!");
-        __delay_ms(5000);
-        lcd_clear();
-            
-        }
-    else {
-        //lcd_clear();
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Tranquilo prro");
-
-        }
-    
 }
 void slave_3(void){
         I2C_Master_Start();             //INICIA LA COMUNICACION
@@ -462,20 +493,7 @@ void slave_3(void){
         humo = I2C_Master_Read(0);     //GUARDA LO QUE LEE
         I2C_Master_Stop();              //TERMINA LA COMUNICACION
         __delay_ms(5);
-        
-        if (humo == 1){ 
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Presente");
-        __delay_ms(5000);
-        //lcd_clear();
-            
-        }
-        else {
-        //lcd_clear();
-        lcd_set_cursor(2, 1);
-        lcd_write_string("Ausente ");
 
-        }
 }
 
 

@@ -66,9 +66,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2642
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2642: extern volatile unsigned char SPBRG __attribute__((address(0x099)));
 [v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
-"2704
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2704: extern volatile unsigned char SPBRGH __attribute__((address(0x09A)));
-[v _SPBRGH `Vuc ~T0 @X0 0 e@154 ]
 "4313
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4313: extern volatile __bit SYNC __attribute__((address(0x4C4)));
 [v _SYNC `Vb ~T0 @X0 0 e@1220 ]
@@ -338,154 +335,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _init_usart ]
 [f ]
-"20
-[; ;USART.c: 20:      TRISCbits.TRISC7=1;
+"18
+[; ;USART.c: 18:      TRISCbits.TRISC7=1;
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"21
-[; ;USART.c: 21:      TRISCbits.TRISC6=0;
+"19
+[; ;USART.c: 19:      TRISCbits.TRISC6=0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"23
-[; ;USART.c: 23:      BAUDCTLbits.SCKP = 0;
+"21
+[; ;USART.c: 21:      BAUDCTLbits.SCKP = 0;
 [e = . . _BAUDCTLbits 0 4 -> -> 0 `i `uc ]
-"24
-[; ;USART.c: 24:      BAUDCTLbits.BRG16 = 0;
+"22
+[; ;USART.c: 22:      BAUDCTLbits.BRG16 = 0;
 [e = . . _BAUDCTLbits 0 3 -> -> 0 `i `uc ]
-"25
-[; ;USART.c: 25:      BAUDCTLbits.ABDEN = 0;
+"23
+[; ;USART.c: 23:      BAUDCTLbits.ABDEN = 0;
 [e = . . _BAUDCTLbits 0 0 -> -> 0 `i `uc ]
-"27
-[; ;USART.c: 27:      TXSTAbits.TXEN=1;
+"25
+[; ;USART.c: 25:      TXSTAbits.TXEN=1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"28
-[; ;USART.c: 28:      TXSTAbits.SYNC=0;
+"26
+[; ;USART.c: 26:      TXSTAbits.SYNC=0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"29
-[; ;USART.c: 29:      TXSTAbits.TX9=0;
+"27
+[; ;USART.c: 27:      TXSTAbits.TX9=0;
 [e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-"30
-[; ;USART.c: 30:      TXSTAbits.BRGH=1;
+"28
+[; ;USART.c: 28:      TXSTAbits.BRGH=1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"33
-[; ;USART.c: 33:      RCSTAbits.SPEN=1;
+"31
+[; ;USART.c: 31:      RCSTAbits.SPEN=1;
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"34
-[; ;USART.c: 34:      RCSTAbits.RX9=0;
+"32
+[; ;USART.c: 32:      RCSTAbits.RX9=0;
 [e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-"35
-[; ;USART.c: 35:      RCSTAbits.CREN=1;
+"33
+[; ;USART.c: 33:      RCSTAbits.CREN=1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"37
-[; ;USART.c: 37:      SPBRG=25;
+"35
+[; ;USART.c: 35:      SPBRG=25;
 [e = _SPBRG -> -> 25 `i `uc ]
-"38
-[; ;USART.c: 38:      SPBRGH=0;
-[e = _SPBRGH -> -> 0 `i `uc ]
-"40
-[; ;USART.c: 40:      SYNC = 0;
+"37
+[; ;USART.c: 37:      SYNC = 0;
 [e = _SYNC -> -> 0 `i `b ]
-"41
-[; ;USART.c: 41:      SPEN = 1;
+"38
+[; ;USART.c: 38:      SPEN = 1;
 [e = _SPEN -> -> 1 `i `b ]
-"42
-[; ;USART.c: 42:      CREN = 1;
+"39
+[; ;USART.c: 39:      CREN = 1;
 [e = _CREN -> -> 1 `i `b ]
-"43
-[; ;USART.c: 43:      TXEN = 1;
+"40
+[; ;USART.c: 40:      TXEN = 1;
 [e = _TXEN -> -> 1 `i `b ]
-"45
-[; ;USART.c: 45:     }
+"42
+[; ;USART.c: 42:     }
 [e :UE 138 ]
 }
-"50
-[; ;USART.c: 50: unsigned char recibe_caracter_usart(){
+"47
+[; ;USART.c: 47: unsigned char recibe_caracter_usart(){
 [v _recibe_caracter_usart `(uc ~T0 @X0 1 ef ]
 {
 [e :U _recibe_caracter_usart ]
 [f ]
-"51
-[; ;USART.c: 51:     if(PIR1bits.RCIF==1){
+"48
+[; ;USART.c: 48:     if(PIR1bits.RCIF==1){
 [e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 140  ]
 {
-"52
-[; ;USART.c: 52:         if (RCSTAbits.OERR == 1){
-[e $ ! == -> . . _RCSTAbits 0 1 `i -> 1 `i 141  ]
-{
-"53
-[; ;USART.c: 53:            RCSTAbits.CREN=0;
-[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-"54
-[; ;USART.c: 54:            RCSTAbits.CREN=1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"55
-[; ;USART.c: 55:         }
-}
-[e :U 141 ]
-"56
-[; ;USART.c: 56:     return RCREG;
+"49
+[; ;USART.c: 49:     return RCREG;
 [e ) _RCREG ]
 [e $UE 139  ]
-"57
-[; ;USART.c: 57:     }else
+"50
+[; ;USART.c: 50:     }
 }
-[e $U 142  ]
+[e $U 141  ]
+"51
+[; ;USART.c: 51:     else
 [e :U 140 ]
-"58
-[; ;USART.c: 58:         return 0;
+"52
+[; ;USART.c: 52:         return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 139  ]
-[e :U 142 ]
-"59
-[; ;USART.c: 59: }
+[e :U 141 ]
+"53
+[; ;USART.c: 53: }
 [e :UE 139 ]
 }
-"64
-[; ;USART.c: 64: void envia_caracter_usart(unsigned char caracter){
+"58
+[; ;USART.c: 58: void envia_caracter_usart(unsigned char caracter){
 [v _envia_caracter_usart `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _envia_caracter_usart ]
 [v _caracter `uc ~T0 @X0 1 r1 ]
 [f ]
-"65
-[; ;USART.c: 65:         while(TXSTAbits.TRMT==0);
-[e $U 144  ]
-[e :U 145 ]
+"59
+[; ;USART.c: 59:         while(TXSTAbits.TRMT==0);
+[e $U 143  ]
 [e :U 144 ]
-[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 145  ]
-[e :U 146 ]
-"66
-[; ;USART.c: 66:  TXREG = caracter;
+[e :U 143 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 144  ]
+[e :U 145 ]
+"60
+[; ;USART.c: 60:  TXREG = caracter;
 [e = _TXREG _caracter ]
-"67
-[; ;USART.c: 67: }
-[e :UE 143 ]
+"61
+[; ;USART.c: 61: }
+[e :UE 142 ]
 }
-"73
-[; ;USART.c: 73: void envia_cadena_usart(char* cadena){
+"67
+[; ;USART.c: 67: void envia_cadena_usart(char* cadena){
 [v _envia_cadena_usart `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _envia_cadena_usart ]
 [v _cadena `*uc ~T0 @X0 1 r1 ]
 [f ]
-"74
-[; ;USART.c: 74:     while(*cadena !=0x00){
-[e $U 148  ]
-[e :U 149 ]
-{
-"76
-[; ;USART.c: 76:         envia_caracter_usart(*cadena);
-[e ( _envia_caracter_usart (1 -> *U _cadena `uc ]
-"77
-[; ;USART.c: 77:         cadena++;
-[e ++ _cadena * -> -> 1 `i `x -> -> # *U _cadena `i `x ]
-"79
-[; ;USART.c: 79:     }
-}
+"68
+[; ;USART.c: 68:     while(*cadena !=0x00){
+[e $U 147  ]
 [e :U 148 ]
+{
+"70
+[; ;USART.c: 70:         envia_caracter_usart(*cadena);
+[e ( _envia_caracter_usart (1 -> *U _cadena `uc ]
+"71
+[; ;USART.c: 71:         cadena++;
+[e ++ _cadena * -> -> 1 `i `x -> -> # *U _cadena `i `x ]
+"73
+[; ;USART.c: 73:     }
+}
+[e :U 147 ]
+"68
+[; ;USART.c: 68:     while(*cadena !=0x00){
+[e $ != -> *U _cadena `i -> 0 `i 148  ]
+[e :U 149 ]
 "74
-[; ;USART.c: 74:     while(*cadena !=0x00){
-[e $ != -> *U _cadena `i -> 0 `i 149  ]
-[e :U 150 ]
-"80
-[; ;USART.c: 80: }
-[e :UE 147 ]
+[; ;USART.c: 74: }
+[e :UE 146 ]
 }
