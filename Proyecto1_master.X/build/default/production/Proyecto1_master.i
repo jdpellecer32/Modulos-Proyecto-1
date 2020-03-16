@@ -3098,7 +3098,7 @@ void boton_lcd(void){
         if (sismo == 1){
             lcd_set_cursor(2, 1);
             lcd_write_string("Esta temblando!");
-            _delay((unsigned long)((5000)*(4000000/4000.0)));
+            _delay((unsigned long)((3000)*(4000000/4000.0)));
 
 
         }
@@ -3115,7 +3115,7 @@ void boton_lcd(void){
         if (humo == 1){
             lcd_set_cursor(2, 1);
             lcd_write_string("Presente");
-            _delay((unsigned long)((5000)*(4000000/4000.0)));
+
 
         }
         else {

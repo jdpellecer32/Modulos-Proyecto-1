@@ -901,8 +901,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Proyecto1_master.c: 235:             lcd_write_string("Esta temblando!");
 [e ( _lcd_write_string (1 :s 9C ]
 "236
-[; ;Proyecto1_master.c: 236:             _delay((unsigned long)((5000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;Proyecto1_master.c: 236:             _delay((unsigned long)((3000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "239
 [; ;Proyecto1_master.c: 239:         }
 }
@@ -947,9 +947,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "252
 [; ;Proyecto1_master.c: 252:             lcd_write_string("Presente");
 [e ( _lcd_write_string (1 :s 12C ]
-"253
-[; ;Proyecto1_master.c: 253:             _delay((unsigned long)((5000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "255
 [; ;Proyecto1_master.c: 255:         }
 }

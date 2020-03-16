@@ -233,7 +233,7 @@ void boton_lcd(void){
         if (sismo == 1){ 
             lcd_set_cursor(2, 1);
             lcd_write_string("Esta temblando!");
-            __delay_ms(5000);
+            __delay_ms(3000);
             //lcd_clear();
             
         }
@@ -250,7 +250,7 @@ void boton_lcd(void){
         if (humo == 1){ 
             lcd_set_cursor(2, 1);
             lcd_write_string("Presente");
-            __delay_ms(5000);
+            //__delay_ms(5000);
             //lcd_clear();   
         }
         else {
